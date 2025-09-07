@@ -32,9 +32,11 @@ map("n", "<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
 map("n", "<leader>gr", ":lua vim.lsp.buf.references()<CR>")
 map("n", "<leader>la", "<cmd>lua print(vim.inspect(require('lspconfig').util.available_servers()))<CR>",
 	{ desc = "Show installed LSP servers" })
-map("n", "<leader>ld", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show LSP diagnostics" })
+map("n", "<leader>lD", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show LSP diagnostics" })
+map("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "Document LSP diagnostics" })
 map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { desc = "Format using LSP" })
-map("n", "<leader>li", function() print(table.concat(vim.tbl_map(function(c) return c.name end, vim.lsp.get_active_clients({bufnr=0})), ", ")) end, { desc = "Show attached LSP servers" })
+map("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Show LSP info" })
+
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
