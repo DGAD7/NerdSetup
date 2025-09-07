@@ -65,6 +65,10 @@ https://github.com/folke/noice.nvim
 * specify blanklines and gridlines
 https://github.com/lukas-reineke/indent-blankline.nvim
 
+### lsp server installation
+* Mason packages enables easy installation of lsp language servers
+https://github.com/williamboman/nvim-lsp-installer
+
 ## Useful commands
 
 ### Find an replace multiple files
