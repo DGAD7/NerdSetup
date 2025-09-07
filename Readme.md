@@ -4,8 +4,22 @@ The setup is based on [Lazy Nvim](https://lazy.folke.io)
 
 #### How to use this
 * [Install neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
+* neovim version > 0.11 required
+* on Linux run this  
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+* Add this to shellrc
+```
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+```
+* brew install neovim
+* export this to the PATH 
+```
+/home/linuxbrew/.linuxbrew/bin/nvim
+```
 
-* Clone this repo to any location of choice
+* Clone this repo to any location of choicei*
 * Create a symlink to this folder. For example if the clone is made in `~/Documents/projects/NerdSetup/` the command as below
 ```
  ln -s ~/Documents/projects/NerdSetup/nvim ~/.config/nvim
