@@ -6,11 +6,11 @@ The setup is based on [Lazy Nvim](https://lazy.folke.io)
 * [Install neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 
 * Clone this repo to any location of choice
-* Create a symlink to this folder. For example if the clone is made in ~/Documents/projects/NerdSetup/ the command as below:w
+* Create a symlink to this folder. For example if the clone is made in `~/Documents/projects/NerdSetup/` the command as below
 ```
  ln -s ~/Documents/projects/NerdSetup/nvim ~/.config/nvim
 ```
-
+* run nvim
 
 ## NVIM packages installed
 
@@ -47,6 +47,23 @@ https://github.com/nvim-tree/nvim-web-devicons
 * Ensure that nerdfons are installed
 https://www.nerdfonts.com/font-downloads
 
+### language servers
+* Adds language server feature
+* Indivual servers are required to be installed manually
+* lspconfig.lua gives instructions for certains lsp servers.
+https://github.com/neovim/nvim-lspconfig
+
+### Auto completing
+* Provides auto completion feature
+https://github.com/hrsh7th/nvim-cmp
+
+### Modern look
+* Noice adds UI for messages, cmdline and the popupmenu
+https://github.com/folke/noice.nvim
+
+### Indentation guides
+* specify blanklines and gridlines
+https://github.com/lukas-reineke/indent-blankline.nvim
 
 ## Useful commands
 
