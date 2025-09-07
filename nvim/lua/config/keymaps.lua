@@ -1,4 +1,3 @@
-
 -- Keymaps for Neovim with lazy.nvim and which-key.nvim
 local map = vim.keymap.set
 
@@ -12,7 +11,8 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle File Explorer"
 
 -- telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find Files" })
-map("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>", { desc = "Find All Files" })
+map("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+	{ desc = "Find All Files" })
 map("n", "<leader>fe", "<cmd>Telescope file_browser<CR>", { desc = "File Browser" })
 map("n", "<leader>fF", "<cmd>Telescope live_grep<CR>", { desc = "Live Grep" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Buffers" })
@@ -23,6 +23,17 @@ map("n", "<leader>fc", "<cmd>Telescope colorscheme<CR>", { desc = "Choose Colors
 -- bufferline
 map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
 map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+
+-- lsps
+map("n", "<leader>gd", ":lua vim.lsp.buf.definition()<CR>")
+map("n", "<leader>gi", ":lua vim.lsp.buf.implementation()<CR>")
+map("n", "K", ":lua vim.lsp.buf.hover()<CR>")
+map("n", "<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
+map("n", "<leader>gr", ":lua vim.lsp.buf.references()<CR>")
+map("n", "<leader>li", "<cmd>lua print(vim.inspect(require('lspconfig').util.available_servers()))<CR>",
+	{ desc = "Show installed LSP servers" })
+map("n", "<leader>ld", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show LSP diagnostics" })
+map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { desc = "Format using LSP" })
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
@@ -60,12 +71,13 @@ map("n", "<leader>bD", "<cmd>bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- Clear search and stop snippet on escape
 map({ "i", "n", "s" }, "<esc>", function()
-  vim.cmd("noh")
-  return "<esc>"
+	vim.cmd("noh")
+	return "<esc>"
 end, { expr = true, desc = "Escape and Clear hlsearch" })
 
 -- Clear search, diff update and redraw
-map("n", "<leader>ur", "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>", { desc = "Redraw / Clear hlsearch / Diff Update" })
+map("n", "<leader>ur", "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+	{ desc = "Redraw / Clear hlsearch / Diff Update" })
 
 -- saner behavior of n and N
 map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
@@ -110,29 +122,34 @@ map("n", "]q", "<cmd>cnext<cr>", { desc = "Next Quickfix" })
 
 -- formatting (example, you may want to use a plugin for formatting)
 map({ "n", "v" }, "<leader>cf", function()
-  vim.lsp.buf.format({ async = true })
+	vim.lsp.buf.format({ async = true })
 end, { desc = "Format" })
 
 -- diagnostic
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
-map("n", "]e", function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR }) end, { desc = "Next Error" })
-map("n", "[e", function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR }) end, { desc = "Prev Error" })
-map("n", "]w", function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN }) end, { desc = "Next Warning" })
-map("n", "[w", function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN }) end, { desc = "Prev Warning" })
+map("n", "]e", function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR }) end,
+	{ desc = "Next Error" })
+map("n", "[e", function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR }) end,
+	{ desc = "Prev Error" })
+map("n", "]w", function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN }) end,
+	{ desc = "Next Warning" })
+map("n", "[w", function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN }) end,
+	{ desc = "Prev Warning" })
 
 -- toggle options (examples)
 map("n", "<leader>us", function() vim.o.spell = not vim.o.spell end, { desc = "Toggle Spelling" })
 map("n", "<leader>uw", function() vim.o.wrap = not vim.o.wrap end, { desc = "Toggle Wrap" })
-map("n", "<leader>ul", function() vim.o.relativenumber = not vim.o.relativenumber end, { desc = "Toggle Relative Number" })
+map("n", "<leader>ul", function() vim.o.relativenumber = not vim.o.relativenumber end,
+	{ desc = "Toggle Relative Number" })
 
 -- quit
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- highlights under cursor (requires Neovim 0.10+)
 if vim.show_pos then
-  map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
+	map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
 end
 
 -- floating terminal (example, you may want to use a plugin for this)
@@ -143,21 +160,21 @@ map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
 
--- tabs
 map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
 map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
 map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
 map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
 map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+
+
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- native snippets (for < 0.11)
 if vim.fn.has("nvim-0.11") == 0 then
-  map("s", "<Tab>", function()
-    return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<Tab>"
-  end, { expr = true, desc = "Jump Next" })
-  map({ "i", "s" }, "<S-Tab>", function()
-    return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
-  end, { expr = true, desc = "Jump Previous" })
+	map("s", "<Tab>", function()
+		return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<Tab>"
+	end, { expr = true, desc = "Jump Next" })
+	map({ "i", "s" }, "<S-Tab>", function()
+		return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
+	end, { expr = true, desc = "Jump Previous" })
 end

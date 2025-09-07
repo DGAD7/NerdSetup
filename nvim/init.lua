@@ -1,4 +1,6 @@
-
 vim.opt.termguicolors = true
-require("config.lazy")
 
+vim.opt.number = true        -- Show absolute line numbers
+vim.opt.relativenumber = false -- Show relative line numbers
+
+require("config.lazy")

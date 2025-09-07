@@ -1,5 +1,17 @@
 # DGADs NVIM setup
 
+The setup is based on [Lazy Nvim](https://lazy.folke.io)
+
+#### How to use this
+* [Install neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
+
+* Clone this repo to any location of choice
+* Create a symlink to this folder. For example if the clone is made in ~/Documents/projects/NerdSetup/ the command as below:w
+```
+ ln -s ~/Documents/projects/NerdSetup/nvim ~/.config/nvim
+```
+
+
 ## NVIM packages installed
 
 ### nvimtree
@@ -34,6 +46,9 @@ https://github.com/nvim-tree/nvim-web-devicons
 
 * Ensure that nerdfons are installed
 https://www.nerdfonts.com/font-downloads
+
+
+## Useful commands
 
 ### Find an replace multiple files
 
