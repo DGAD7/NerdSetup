@@ -19,13 +19,16 @@ map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Buffers" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Help Tags" })
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Old Files" })
 map("n", "<leader>fc", "<cmd>Telescope colorscheme<CR>", { desc = "Choose Colorscheme" })
+map("n", "<leader>gi", "<cmd>Telescope lsp_implementations<CR>", { desc = "LSP: [G]oto [I]mplementation" })
+map('n', 'gd', require('telescope.builtin').lsp_definitions, { desc = 'LSP: [G]oto [D]efinition' })
+map('n', 'gr', require('telescope.builtin').lsp_references, { desc = 'LSP: [G]oto [R]eferences' })
+map('n', 'gI', require('telescope.builtin').lsp_implementations, { desc = 'LSP: [G]oto [I]mplementation' })
 
 -- bufferline
 map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
 map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
 
 -- lsps
-map("n", "<leader>gd", ":lua vim.lsp.buf.definition()<CR>")
 map("n", "<leader>gi", ":lua vim.lsp.buf.implementation()<CR>")
 map("n", "K", ":lua vim.lsp.buf.hover()<CR>")
 map("n", "<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
