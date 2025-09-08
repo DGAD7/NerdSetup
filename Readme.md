@@ -63,9 +63,14 @@ https://www.nerdfonts.com/font-downloads
 
 ### language servers
 * Adds language server feature
-* Indivual servers are required to be installed manually
+* Indivdual servers are required to be installed and are handled by mason. Mason and nvim-lspconfig is bridged by mason-lspconfig
 * lspconfig.lua gives instructions for certains lsp servers.
 https://github.com/neovim/nvim-lspconfig
+https://github.com/mason-org/mason-lspconfig.nvim
+
+### lsp server installation
+* Mason packages enables easy installation of lsp language servers
+https://github.com/mason-org/mason.nvim
 
 ### Auto completing
 * Provides auto completion feature
@@ -79,9 +84,11 @@ https://github.com/folke/noice.nvim
 * specify blanklines and gridlines
 https://github.com/lukas-reineke/indent-blankline.nvim
 
-### lsp server installation
-* Mason packages enables easy installation of lsp language servers
-https://github.com/williamboman/nvim-lsp-installer
+### Diagnostics
+* Trouble package adds better diagnostics viewability.
+https://github.com/folke/trouble.nvim
+
+
 
 ## Useful commands
 
