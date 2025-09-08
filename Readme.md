@@ -2,39 +2,49 @@
 
 The setup is based on [Lazy Nvim](https://lazy.folke.io)
 
-#### How to use this
-* [Install neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
+## How to use this repo
+### [Install neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 * neovim version > 0.11 required
-* on Linux run this  
+* Instructions using brew is given below and works for Linux nas macOS
+
+#### Install Homebrew
+* on macOS bew is preinstalled
+* on Linux run this to install brew  
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-* Add this to shellrc
+* Add this to shellrc (.zshrc or .bashrc)
 ```
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 ```
-* brew install neovim
-* export this to the PATH 
+* Run the command
+```
+brew install neovim
+```
+* export neovim to the PATH 
 ```
 /home/linuxbrew/.linuxbrew/bin/nvim
 ```
 
-* Clone this repo to any location of choicei*
+* Clone this repo to any location of choice
 * Create a symlink to this folder. For example if the clone is made in `~/Documents/projects/NerdSetup/` the command as below
 ```
  ln -s ~/Documents/projects/NerdSetup/nvim ~/.config/nvim
 ```
-* run nvim
+* run nvim (for example as below)
+```
+nvim .
+```
 
-## NVIM packages installed
-
+## NVIM packages included
 ### nvimtree
 * This package provides a explorer tree view of the files.
 * see keybindings for keys related to this.
+https://github.com/nvim-tree/nvim-tree.lua
 
 ### bufferline
 * This package helps with managing buffers
-https://github.com/akinsho/bufferline.nvim?tab=readme-ov-file#installation
+https://github.com/akinsho/bufferline.nvim
 
 ### telescope
 * This package helps with fuzzy logics. Find files, livegrep, change colorschemes
