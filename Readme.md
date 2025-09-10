@@ -5,10 +5,10 @@ The setup is based on [Lazy Nvim](https://lazy.folke.io)
 ## How to use this repo
 ### [Install neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 * neovim version > 0.11 required
-* Instructions using brew is given below and works for Linux nas macOS
+* Instructions using brew is given below and works for Linux and macOS
 
 #### Install Homebrew
-* on macOS bew is preinstalled
+* on macOS brew is preinstalled
 * on Linux run this to install brew  
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -35,6 +35,7 @@ brew install neovim
 ```
 nvim .
 ```
+* Note: Install [nerd fonts](https://www.nerdfonts.com/) to visualize all icons in Neovim
 
 ## NVIM packages included
 ### nvimtree
@@ -53,8 +54,8 @@ https://github.com/akinsho/bufferline.nvim
 https://github.com/nvim-telescope/telescope.nvim
 
 ### whichkey
-* Contains all th keybindings
-* keybidings are in configs/keymap
+* Manages all the keybindings
+* keybidings are in `configs/keymap`
 https://github.com/folke/which-key.nvim
 
 ### miniicons
@@ -72,8 +73,8 @@ https://github.com/nvim-tree/nvim-web-devicons
 https://www.nerdfonts.com/font-downloads
 
 ### language servers
-* Adds language server feature
-* Indivdual servers are required to be installed and are handled by mason. Mason and nvim-lspconfig is bridged by mason-lspconfig
+* Adds language-server feature
+* Individual servers are required to be installed and are handled by mason. Mason and nvim-lspconfig is bridged by mason-lspconfig
 * lspconfig.lua gives instructions for certains lsp servers.
 https://github.com/neovim/nvim-lspconfig
 https://github.com/mason-org/mason-lspconfig.nvim
@@ -87,7 +88,7 @@ https://github.com/mason-org/mason.nvim
 https://github.com/hrsh7th/nvim-cmp
 
 ### Modern look
-* Noice adds UI for messages, cmdline and the popupmenu
+* Noice adds modern UI for messages, cmdline and the popupmenu
 https://github.com/folke/noice.nvim
 
 ### Indentation guides

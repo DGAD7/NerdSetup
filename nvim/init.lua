@@ -1,6 +1,5 @@
 vim.opt.termguicolors = true
 vim.opt.clipboard = 'unnamedplus'
-vim.g.autochdir = true
 vim.opt.number = true          -- Show absolute line numbers
 vim.opt.relativenumber = false -- Show relative line numbers
 vim.diagnostic.open_float(nil, { max_width = 120, max_height = 20 })
