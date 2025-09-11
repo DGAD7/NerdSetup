@@ -25,7 +25,15 @@ brew install neovim
 ```
 /home/linuxbrew/.linuxbrew/bin/nvim
 ```
-
+* Install required tools
+```
+brew install cmake
+brew install cmake-language-server
+brew install go 
+brew install npm 
+sudo apt install ripgrep
+sudo apt install luarocks
+```
 * Clone this repo to any location of choice
 * Create a symlink to this folder. For example if the clone is made in `~/Documents/projects/NerdSetup/` the command as below
 ```
