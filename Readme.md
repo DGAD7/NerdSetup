@@ -107,6 +107,9 @@ https://github.com/lukas-reineke/indent-blankline.nvim
 * Trouble package adds better diagnostics viewability.
 https://github.com/folke/trouble.nvim
 
+### Gitsigns 
+* add gitlens features
+https://github.com/lewis6991/gitsigns.nvim
 
 
 ## Useful commands
@@ -122,3 +125,6 @@ https://github.com/folke/trouble.nvim
 
 ### Find source
 `gd`: Pressing `gd` on a code line, will navigate to the source of the code above the cursor.
+
+### Paste
+`P`: Shift P will paste in unix format without the ^M that accompanies on windows OS paste

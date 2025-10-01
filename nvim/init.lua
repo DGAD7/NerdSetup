@@ -13,6 +13,11 @@ vim.diagnostic.config({
 	underline = true,  -- underline problematic code
 	update_in_insert = false, -- don't update diagnostics while typing
 })
-
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function()
+		vim.bo.fileformat = "unix"
+	end,
+})
 
 require("config.lazy")
