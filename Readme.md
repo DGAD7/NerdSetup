@@ -111,6 +111,9 @@ https://github.com/folke/trouble.nvim
 * add gitlens features
 https://github.com/lewis6991/gitsigns.nvim
 
+### Markdown preview
+* add preview for readme 
+https://github.com/iamcco/markdown-preview.nvimtree
 
 ## Useful commands
 
@@ -128,3 +131,6 @@ https://github.com/lewis6991/gitsigns.nvim
 
 ### Paste
 `P`: Shift P will paste in unix format without the ^M that accompanies on windows OS paste
+
+### Start a markdown preview
+`:MarkdownPreview`
