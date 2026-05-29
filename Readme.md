@@ -30,11 +30,13 @@ brew install neovim
 brew install cmake
 brew install cmake-language-server
 brew install clang-format llvm codespell
+brew install include-what-you-use
 brew install go 
 brew install npm 
 sudo apt install ripgrep
 sudo apt install luarocks
 sudo apt install clang-tidy
+sudo apt install iwyu
 ```
 * Clone this repo to any location of choice
 * Create a symlink to this folder. For example if the clone is made in `~/Documents/projects/NerdSetup/` the command as below

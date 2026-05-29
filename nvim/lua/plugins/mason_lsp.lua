@@ -29,6 +29,16 @@ return {
 				function(server_name)
 					require("lspconfig")[server_name].setup({})
 				end,
+				["clangd"] = function()
+					require("lspconfig").clangd.setup({
+						cmd = {
+							"clangd",
+							"--background-index",
+							"--clang-tidy",
+							"--header-insertion=iwyu",
+						},
+					})
+				end,
 			},
 		},
 	}

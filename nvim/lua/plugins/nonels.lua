@@ -11,9 +11,6 @@ return {
 			local cspell = require("cspell")
 			null_ls.setup({
 				sources = {
-					-- formatting
-					null_ls.builtins.formatting.clang_format,
-
 					-- diagnostics
 					cspell.diagnostics,
 					null_ls.builtins.diagnostics.golangci_lint,
