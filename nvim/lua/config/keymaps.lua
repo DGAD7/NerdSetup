@@ -38,6 +38,7 @@ map("n", "<leader>la", "<cmd>lua print(vim.inspect(require('lspconfig').util.ava
 map("n", "<leader>lD", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show LSP diagnostics" })
 map("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "Document LSP diagnostics" })
 map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { desc = "Format using LSP" })
+map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "LSP Code Action" })
 map("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Show LSP info" })
 
 -- Trouble

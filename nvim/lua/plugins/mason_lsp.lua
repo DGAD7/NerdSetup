@@ -1,6 +1,10 @@
 return {
 	{
 		"williamboman/mason-lspconfig.nvim",
+		dependencies = {
+			{ "williamboman/mason.nvim", config = true },
+			"neovim/nvim-lspconfig",
+		},
 		opts = {
 			ensure_installed = {
 				"bashls",
@@ -21,11 +25,11 @@ return {
 				"ansiblels",
 
 			},
-		},
-
-		dependencies = {
-			{ "williamboman/mason.nvim", opts = {} },
-			"neovim/nvim-lspconfig",
+			handlers = {
+				function(server_name)
+					require("lspconfig")[server_name].setup({})
+				end,
+			},
 		},
 	}
 }

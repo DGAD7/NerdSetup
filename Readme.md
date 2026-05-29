@@ -29,10 +29,12 @@ brew install neovim
 ```
 brew install cmake
 brew install cmake-language-server
+brew install clang-format llvm codespell
 brew install go 
 brew install npm 
 sudo apt install ripgrep
 sudo apt install luarocks
+sudo apt install clang-tidy
 ```
 * Clone this repo to any location of choice
 * Create a symlink to this folder. For example if the clone is made in `~/Documents/projects/NerdSetup/` the command as below
@@ -114,6 +116,11 @@ https://github.com/lewis6991/gitsigns.nvim
 ### Markdown preview
 * add preview for readme 
 https://github.com/iamcco/markdown-preview.nvimtree
+
+### None-ls
+* For code formatting, linting and spell checking
+https://github.com/nvimtools/none-ls.nvim
+* Dependancy brew install clang-format llvm  cspell or  simply open Neovim, type :Mason, and install clang-format, clang-tidy, and codespell from the Mason UI.
 
 ## Useful commands
 
