@@ -130,6 +130,13 @@ https://github.com/nvimtools/none-ls.nvim
 * For formatting. The current configuration is setup for most languages. Easy to added more.
 https://github.com/stevearc/conform.nvim
 
+### Treesitter
+* Provides advanced, syntax-aware highlighting and code parsing
+https://github.com/nvim-treesitter/nvim-treesitter
+
+### Debugging (DAP)
+* Debug Adapter Protocol for stepping through code and setting breakpoints (GDB/LLDB)
+https://github.com/mfussenegger/nvim-dap
 ## Useful commands
 
 ### Find an replace multiple files
@@ -164,9 +171,10 @@ mkdir -p ~/.git-templates/hooks
 
 python3 $PATH_TO_NerdSetup/pre-commit-hook.py
 ```
+* Make the file executable and configure git to pick up the pre-commit hook
 ```
 chmod +x ~/.git-templates/hooks/pre-commit
 git config --global init.templateDir '~/.git-templates'
 ```
 
-* Every commit will make changes for the configurations in the `pre-commit-hook.py` file
+* Every commit will check the files for the rules in the `pre-commit-hook.py` file
