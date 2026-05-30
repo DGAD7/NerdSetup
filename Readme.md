@@ -4,7 +4,7 @@ The setup is based on [Lazy Nvim](https://lazy.folke.io)
 
 ## How to use this repo
 ### [Install neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
-* neovim version > 0.11 required
+* NVIM >= v0.12.2
 * Instructions using brew is given below and works for Linux and macOS
 
 #### Install Homebrew
@@ -38,7 +38,7 @@ sudo apt install luarocks
 sudo apt install clang-tidy
 sudo apt install iwyu
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-
+nvm install 22
 ```
 * Clone this repo to any location of choice
 * Create a symlink to this folder. For example if the clone is made in `~/Documents/projects/NerdSetup/` the command as below
@@ -126,6 +126,10 @@ https://github.com/iamcco/markdown-preview.nvimtree
 https://github.com/nvimtools/none-ls.nvim
 * Dependancy brew install clang-format llvm  cspell or  simply open Neovim, type :Mason, and install clang-format, clang-tidy, and codespell from the Mason UI.
 
+### Conform
+* For formatting. The current configuration is setup for most languages. Easy to added more.
+https://github.com/stevearc/conform.nvim
+
 ## Useful commands
 
 ### Find an replace multiple files
@@ -145,3 +149,24 @@ https://github.com/nvimtools/none-ls.nvim
 
 ### Start a markdown preview
 `:MarkdownPreview`
+
+## Git Hooks
+
+Create this folder.
+The `.git-templates` can placed in any location of choice. Update accordingly
+```
+mkdir -p ~/.git-templates/hooks
+```
+
+* Add this to the `precommit` file in `.git-templates/hooks` folder. 
+```
+#!/bin/sh
+
+python3 $PATH_TO_NerdSetup/pre-commit-hook.py
+```
+```
+chmod +x ~/.git-templates/hooks/pre-commit
+git config --global init.templateDir '~/.git-templates'
+```
+
+* Every commit will make changes for the configurations in the `pre-commit-hook.py` file
