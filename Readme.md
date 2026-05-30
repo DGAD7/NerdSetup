@@ -37,6 +37,8 @@ sudo apt install ripgrep
 sudo apt install luarocks
 sudo apt install clang-tidy
 sudo apt install iwyu
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
 ```
 * Clone this repo to any location of choice
 * Create a symlink to this folder. For example if the clone is made in `~/Documents/projects/NerdSetup/` the command as below

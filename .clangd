@@ -1,0 +1,31 @@
+---
+CompileFlags:
+  Add:
+    - "-Wall"
+    - "-Wextra"
+    - "-Wpedantic"
+    - "-Werror"
+
+Diagnostics:
+  # Warn using a symbol but haven't directly included its header (transitive includes)
+  MissingIncludes: Strict
+
+  # Warn when #include lines that you aren't actually using in the file
+  UnusedIncludes: Strict
+
+  # Your clang-tidy rules embedded directly into clangd
+  ClangTidy:
+    FastCheckFilter: None
+    Add:
+      - modernize-use-constexpr
+      - readability-non-const-parameter
+      - readability-const-return-type
+      - misc-include-cleaner
+      - misc-const-correctness
+      - modernize-*
+      - performance-*
+      - bugprone-*
+    Remove:
+      - "*" # This represents the "-*" (disables all defaults before applying yours)
+      - modernize-use-trailing-return-type
+...
