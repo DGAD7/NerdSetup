@@ -3,6 +3,10 @@ return {
 		'akinsho/bufferline.nvim',
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
+		keys = {
+			{ "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+			{ "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
+		},
 		opts = {
 			options = {
 				mode = "buffers",

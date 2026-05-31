@@ -6,49 +6,10 @@ map("n", "<Select>", "$", { desc = "Go to End of Line" })
 map("i", "<Find>", "<C-o>^", { desc = "Go to Start of Line" })
 map("i", "<Select>", "<C-o>$", { desc = "Go to End of Line" })
 
--- nvim-tree
-map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle File Explorer" })
-
--- telescope
-map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find Files" })
-map("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-	{ desc = "Find All Files" })
-map("n", "<leader>fe", "<cmd>Telescope file_browser<CR>", { desc = "File Browser" })
-map("n", "<leader>fF", "<cmd>Telescope live_grep<CR>", { desc = "Live Grep" })
-map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Buffers" })
-map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Help Tags" })
-map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Old Files" })
-map("n", "<leader>fc", "<cmd>Telescope colorscheme<CR>", { desc = "Choose Colorscheme" })
-map("n", "<leader>gi", "<cmd>Telescope lsp_implementations<CR>", { desc = "LSP: [G]oto [I]mplementation" })
-map('n', 'gd', require('telescope.builtin').lsp_definitions, { desc = 'LSP: [G]oto [D]efinition' })
-map('n', 'gr', require('telescope.builtin').lsp_references, { desc = 'LSP: [G]oto [R]eferences' })
-map('n', 'gI', require('telescope.builtin').lsp_implementations, { desc = 'LSP: [G]oto [I]mplementation' })
-
--- bufferline
-map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
-map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
-
--- lsps
-map("n", "<leader>gi", ":lua vim.lsp.buf.implementation()<CR>")
-map("n", "K", ":lua vim.lsp.buf.hover()<CR>")
-map("n", "<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
-map("n", "<leader>gr", ":lua vim.lsp.buf.references()<CR>")
+-- lsps . Rest are in mason_lsp.lua
 map("n", "<leader>la", "<cmd>lua print(vim.inspect(require('lspconfig').util.available_servers()))<CR>",
 	{ desc = "Show installed LSP servers" })
-map("n", "<leader>lD", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show LSP diagnostics" })
-map("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "Document LSP diagnostics" })
-map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { desc = "Format using LSP" })
-map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "LSP Code Action" })
 map("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Show LSP info" })
-
--- Trouble
-map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
-map("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
-map("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
-map("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-	{ desc = "LSP Definitions / references / ... (Trouble)" })
-map("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
-map("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
@@ -180,7 +141,13 @@ map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
 map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
 map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
 map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
-map("n", "P", function() vim.cmd("normal! P") vim.cmd(":%s/\r//g") end)
+
+map("n", "P", function()
+	local reg = vim.v.register
+	local text = vim.fn.getreg(reg)
+	vim.fn.setreg(reg, text:gsub("\r", ""))
+	vim.cmd('normal! "' .. reg .. 'P')
+end, { desc = "Paste without Windows carriage returns" })
 
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 

@@ -15,6 +15,7 @@ def is_namespaces_ok():
                 "--cached",
                 "--name-only",
                 "--diff-filter=ACM",
+                "--",
                 "*.cpp",
                 "*.h",
                 "*.hpp",
@@ -42,22 +43,20 @@ def is_namespaces_ok():
 
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
-        
+
         issues = []
         if pattern_open.search(content):
             issues.append("Missing blank line after opening namespace brace")
         if pattern_close.search(content):
             issues.append("Missing blank line before final closing brace")
-            
+
         if issues:
             failed_files[filepath] = issues
 
     # 4. If any files failed, block the commit and print the errors
     if failed_files:
-        print(
-            "\n❌ COMMIT BLOCKED: Namespace formatting issues found."
-        )
-        
+        print("\n❌ COMMIT BLOCKED: Namespace formatting issues found.")
+
         for filepath, issues in failed_files.items():
             print(f"   📄 {filepath}:")
             for issue in issues:
@@ -72,6 +71,7 @@ def check_formatting():
         print("\nPlease fix the namespace formatting and run 'git add' again.\n")
         return 1
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(check_formatting())
