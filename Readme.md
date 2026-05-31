@@ -4,7 +4,20 @@ The setup is based on [Lazy Nvim](https://lazy.folke.io)
 
 ## How to use this repo
 ### [Install neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
-* NVIM >= v0.12.2
+* NVIM == v0.11.4
+**Note: tresitter crashes with neovim v0.12.2
+
+* Installation 0f Neovim v0.11.4
+```
+brew install bob
+bob install 0.11.4
+bob use 0.11.4
+```
+add this to the RC file 
+```
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+```
+
 * Instructions using brew is given below and works for Linux and macOS
 
 #### Install Homebrew
@@ -17,7 +30,7 @@ The setup is based on [Lazy Nvim](https://lazy.folke.io)
 ```
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 ```
-* Run the command
+* Run the command to install latest neovim. Be aware of the issues with the latest version. Use bob as mentioned above to install a specific version
 ```
 brew install neovim
 ```
