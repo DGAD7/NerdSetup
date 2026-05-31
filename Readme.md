@@ -137,6 +137,23 @@ https://github.com/nvim-treesitter/nvim-treesitter
 ### Debugging (DAP)
 * Debug Adapter Protocol for stepping through code and setting breakpoints (GDB/LLDB)
 https://github.com/mfussenegger/nvim-dap
+
+### Harpoon
+* Blazingly fast file switching for your active workspace
+https://github.com/ThePrimeagen/harpoon
+
+### Vim-Fugitive
+* The premier Git integration for Neovim (great for resolving merge conflicts and running Git commands)
+https://github.com/tpope/vim-fugitive
+
+### Autopairs
+* Automatically close parentheses, brackets, and quotes as you type
+https://github.com/windwp/nvim-autopairs
+
+### Aerial
+* Code outline window for navigating classes, functions, and symbols
+https://github.com/stevearc/aerial.nvim
+
 ## Useful commands
 
 ### Find an replace multiple files
