@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import fnmatch
 import os
 import re
 import subprocess
@@ -22,11 +23,22 @@ def is_namespaces_ok():
             ]
         ).decode("utf-8")
     except subprocess.CalledProcessError:
-        return 0
+        return True
 
-    files = [f for f in git_output.splitlines() if f.strip()]
+    excluded_patterns = ["main*.cpp"]
+
+    files = [
+        f.strip()
+        for f in git_output.splitlines()
+        if f.strip()
+        and not any(
+            fnmatch.fnmatch(os.path.basename(f.strip()), pat)
+            for pat in excluded_patterns
+        )
+    ]
+
     if not files:
-        return 0
+        return True
 
     # 2. Regex: Find 'namespace ... \n {' followed immediately by a line that isn't empty
     # ([^\n\s]) means the next line contains a visible character
@@ -34,6 +46,10 @@ def is_namespaces_ok():
 
     # Check for missing blank line BEFORE the last closing brace in the file
     pattern_close = re.compile(r"([^\n\s][ \t]*\n)([ \t]*\}[^}]*)$")
+
+    # Check if a namespace brace exists at all (ignoring 'using namespace ...;')
+    pattern_namespace_brace = re.compile(r"\bnamespace\b[^{;]*\{")
+
     failed_files = {}
 
     # 3. Check each file
@@ -47,7 +63,7 @@ def is_namespaces_ok():
         issues = []
         if pattern_open.search(content):
             issues.append("Missing blank line after opening namespace brace")
-        if pattern_close.search(content):
+        if pattern_namespace_brace.search(content) and pattern_close.search(content):
             issues.append("Missing blank line before final closing brace")
 
         if issues:

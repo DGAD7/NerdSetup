@@ -11,7 +11,7 @@ return {
 		local servers = {
 			"bashls",
 			"tailwindcss",
-			"cmake",
+			-- "cmake",
 			"clangd", -- C++,C
 			"gopls", -- Go
 			"templ", -- Templ
@@ -38,8 +38,8 @@ return {
 				"--background-index",
 				"--clang-tidy",
 				"--header-insertion=iwyu",
-				"--suggest-missing-includes"
-			}
+				"--suggest-missing-includes",
+			},
 		})
 
 		-- Enable all servers using the new Neovim 0.11/0.12 API

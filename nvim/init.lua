@@ -19,7 +19,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		vim.bo.fileformat = "unix"
 	end,
 })
-vim.filetype.add({ extension = { templ = "templ" } })
+
+vim.filetype.add({
+	extension = {
+		templ = "templ",
+	},
+	pattern = {
+		-- Matches files like 'Dockerfile', 'Dockerfile.dev', 'Dockerfile.prod'
+		[".*Dockerfile.*"] = "dockerfile",
+		-- Matches files like 'dockerfile', 'my-dockerfile'
+		[".*dockerfile.*"] = "dockerfile",
+	},
+})
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "markdown", "text", "gitcommit" },
