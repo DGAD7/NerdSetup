@@ -19,11 +19,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		vim.bo.fileformat = "unix"
 	end,
 })
+vim.filetype.add({ extension = { templ = "templ" } })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown", "text", "gitcommit" },
-  callback = function()
-    vim.opt_local.spell = true
-  end,
+	pattern = { "markdown", "text", "gitcommit" },
+	callback = function()
+		vim.opt_local.spell = true
+	end,
 })
 require("config.lazy")

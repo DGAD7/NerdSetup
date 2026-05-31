@@ -14,7 +14,7 @@ return {
 			{ "<leader>fc", "<cmd>Telescope colorscheme<CR>",                                       desc = "Choose Colorscheme" },
 			{ "<leader>gi", "<cmd>Telescope lsp_implementations<CR>",                               desc = "LSP: [G]oto [I]mplementation" },
 			{ "gd",         function() require('telescope.builtin').lsp_definitions() end,          desc = "LSP: [G]oto [D]efinition" },
-			{ "gr",         function() require('telescope.builtin').lsp_references() end,           desc = "LSP: [G]oto [R]eferences" },
+			{ "gR",         function() require('telescope.builtin').lsp_references() end,           desc = "LSP: [G]oto [R]eferences" },
 			{ "gI",         function() require('telescope.builtin').lsp_implementations() end,      desc = "LSP: [G]oto [I]mplementation" },
 		},
 

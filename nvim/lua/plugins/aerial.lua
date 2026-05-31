@@ -1,9 +1,12 @@
 return {
 	"stevearc/aerial.nvim",
+	branch = "nvim-0.11",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-tree/nvim-web-devicons",
 	},
+	-- Tells lazy.nvim to load Aerial if you type these commands manually
+	cmd = { "AerialToggle", "AerialOpen", "AerialInfo", "AerialNavToggle" },
 	keys = {
 		{ "<leader>o", "<cmd>AerialToggle!<CR>", desc = "Toggle Aerial (Code Outline)" },
 	},
