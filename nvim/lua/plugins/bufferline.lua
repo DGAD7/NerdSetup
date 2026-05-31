@@ -17,7 +17,7 @@ return {
 				style = 'icon',
 			},
 			diagnostics = "nvim_lsp",
-			buffer_close_icon = '',
+			buffer_close_icon = '󰅖',
 			modified_icon = '●',
 			show_buffer_close_icons = true,
 			close_icon = '',

@@ -169,6 +169,18 @@ https://github.com/windwp/nvim-autopairs
 * Code outline window for navigating classes, functions, and symbols
 https://github.com/stevearc/aerial.nvim
 
+### Lualine
+* A blazing fast and easy to configure Neovim statusline
+https://github.com/nvim-lualine/lualine.nvim
+
+### Dressing
+* Upgrades Neovim's default `vim.ui` interfaces (prompts and selects) into beautiful floating windows
+https://github.com/stevearc/dressing.nvim
+
+### Dashboard
+* A fancy, modern start screen for Neovim with quick links to recent files and search
+https://github.com/nvimdev/dashboard-nvim
+
 ## Useful commands
 
 ### Find an replace multiple files
