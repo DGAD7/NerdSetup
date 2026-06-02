@@ -222,3 +222,6 @@ git config --global init.templateDir '~/.git-templates'
 ```
 
 * Every commit will check the files for the rules in the `pre-commit-hook.py` file
+The pre-commit hook checks for 
+1. checks if a blank line is added after each namespace and before the end of that namespace
+2. check if all enumerations are lower case

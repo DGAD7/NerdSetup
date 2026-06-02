@@ -5,6 +5,7 @@ CompileFlags:
     - "-Wextra"
     - "-Wpedantic"
     - "-Werror"
+    - "-Wunused-using-decls"
 
 Diagnostics:
   # Warn using a symbol but haven't directly included its header (transitive includes)
@@ -22,10 +23,10 @@ Diagnostics:
       - readability-const-return-type
       - misc-include-cleaner
       - misc-const-correctness
+      - misc-unused-using-decl
       - modernize-*
       - performance-*
       - bugprone-*
     Remove:
-      - "*" # This represents the "-*" (disables all defaults before applying yours)
       - modernize-use-trailing-return-type
 ...
