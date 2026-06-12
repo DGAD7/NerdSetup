@@ -6,6 +6,8 @@ CompileFlags:
     - "-Wpedantic"
     - "-Werror"
     - "-Wunused-using-decls"
+    - "-Wunused-using-decls"
+    - "-Wconst-qualifiers"
 
 Diagnostics:
   # Warn using a symbol but haven't directly included its header (transitive includes)
@@ -14,7 +16,7 @@ Diagnostics:
   # Warn when #include lines that you aren't actually using in the file
   UnusedIncludes: Strict
 
-  # Your clang-tidy rules embedded directly into clangd
+  # clang-tidy rules embedded directly into clangd
   ClangTidy:
     FastCheckFilter: None
     Add:
@@ -23,10 +25,13 @@ Diagnostics:
       - readability-const-return-type
       - misc-include-cleaner
       - misc-const-correctness
+      - misc-throw-by-value-catch-by-reference
       - misc-unused-using-decl
       - modernize-*
       - performance-*
       - bugprone-*
     Remove:
       - modernize-use-trailing-return-type
+    CheckOptions:
+      misc-const-correctness.AllowedTypes: "std::scoped_lock;std::unique_lock;std::lock_guard"
 ...
